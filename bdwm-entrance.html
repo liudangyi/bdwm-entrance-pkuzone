@@ -62,13 +62,15 @@
                 percent = (100-left>0) ? (100-left)/100 : 0;
             $('#know-more').css('opacity',percent);
           },
+          stop: function() {
+            $('#know-more').fadeTo('fast',1);
+          }
         });
         $('#slider').mouseup(function(){
             if (parseInt(this.style.left) > 210) {
               window.location.href='http://irsa.bdwm.net'; 
-            } else {
-              $('#know-more').fadeTo('slow',1);
             }
+            $('#know-more').fadeTo('slow',1);
         });
       });
     </script>
