@@ -9,18 +9,34 @@ body {
   background-image: -moz-linear-gradient(bottom, #999999 0%, #010101 50%);
   background-image: -webkit-linear-gradient(bottom, #999999 0%, #010101 50%);
   background-image: -ms-linear-gradient(bottom, #999999 0%, #010101 50%);
+  filter : progid:DXImageTransform.Microsoft.Gradient ( 
+      startColorStr=#010101 , 
+      endColorStr=#999999
+    )
 }
 .main {
   position: relative;
   height: 600px;
   width: 960px;
   background-image: url("img/pkuzone.png");
-  filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+      src='img/pkuzone.png',
+      sizingMethod='scale'
+    );
+  -mfs-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+      src='images/pkuzone.png',
+      sizingMethod='scale'
+    );
   -moz-background-size:100% 100%;
 	background-size:100% 100%;
 	margin: 0 auto 8px;
 	box-shadow: 0px 3px 7px #444;
 	border-left: 1px solid rgba(200,200,200,0.6);
+}
+#know-more {
+  position: absolute;
+  right: 12px;
+  top: 7px;
 }
 #slide {
   position: absolute;
@@ -69,7 +85,7 @@ input:hover, input:focus {
 #login-logo {
   position: absolute;
   right: 8px;
-  bottom: 7px;
+  bottom: 6px;
 }
 .links {
   float: left;
@@ -95,7 +111,7 @@ p {
 }
 p a {
   text-decoration: none;
-  color: #444;
+  color: #383838;
   font-weight: 0;  
 }
 p a:hover {

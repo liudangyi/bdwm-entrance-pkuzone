@@ -7,7 +7,6 @@
     <meta name="author" content="" />
     <meta name="description" content="北京大学未名BBS bbs.pku.edu.cn" />
     <link rel="stylesheet" href="pkuzone.css" type="text/css" />
-    
 
     <script> 
       var userlogin_redirect = "http://www.bdwm.net/bbs/";
@@ -23,12 +22,13 @@
   <body>
     <div class="main">
       <div id="slide">
+        <img id="know-more" src="img/know-more.png" width="160" height="22">
         <img id="slider" src="img/slider.png" width="65" height="36" />
       </div>
       <div id="loginform">
         <form name="form1" method="post" action="https://www.bdwm.net/bbs/bbslog2.php">
-          <input id="inp_name" class="input_off" name="userid" onblur="this.className='input_off';this.onmouseout=function(){this.className='input_out'};" onmousemove="this.className='input_move'" onmouseout="this.className='input_out'" onmouseover="this.focus()" onfocus="this.className='input_on';this.onmouseout=''" onclick="//this.value='';$('#login-logo').hide();" maxlength="14" type="text" placeholder="用户名" />
-          <input id="inp_pass" class="input_off" name="passwd" onblur="this.className='input_off';this.onmouseout=function(){this.className='input_out'};" onmousemove="this.className='input_move'" onmouseout="this.className='input_out'" onmouseover="this.focus()" onfocus="this.className='input_on';this.onmouseout=''" onclick="//this.value='';$('#login-logo').hide();" maxlength="40" type="password" placeholder="密码" />
+          <input id="inp_name" class="input_off" name="userid" onblur="this.className='input_off';this.onmouseout=function(){this.className='input_out'};" onmousemove="this.className='input_move'" onmouseout="this.className='input_out'" onmouseover="this.focus()" onfocus="this.className='input_on';this.onmouseout=''" onclick="this.value='';$('#login-logo').hide();" maxlength="14" type="text" placeholder="用户名" />
+          <input id="inp_pass" class="input_off" name="passwd" onblur="this.className='input_off';this.onmouseout=function(){this.className='input_out'};" onmousemove="this.className='input_move'" onmouseout="this.className='input_out'" onmouseover="this.focus()" onfocus="this.className='input_on';this.onmouseout=''" onclick="this.value='';$('#login-logo').hide();" maxlength="40" type="password" placeholder="密码" />
           <input id="login-logo" type="image" src="img/login.png" type="submit" width="20" height="20" />
         </form>
         <div class="links">
@@ -58,10 +58,18 @@
           revert: true, 
           revertDuration: 500, 
           drag: function(){
-            if (this.style.left == '212px') {
+            var left = parseInt(this.style.left),
+                percent = (100-left>0) ? (100-left)/100 : 0;
+            $('#know-more').css('opacity',percent);
+          },
+        });
+        $('#slider').mouseup(function(){
+            if (parseInt(this.style.left) > 210) {
               window.location.href='http://irsa.bdwm.net'; 
-            };
-        }});
+            } else {
+              $('#know-more').fadeTo('slow',1);
+            }
+        });
       });
     </script>
     

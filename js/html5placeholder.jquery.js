@@ -78,16 +78,15 @@
   //expose defaults
   $.fn.placeholder.defaults = {
     //you can pass in a custom wrapper
-    inputWrapper: '<span style="position:relative; display:block;"></span>',
+    inputWrapper: '<span style="position:relative; color: #999; display:block;"></span>',
   
     //more or less just emulating what webkit does here
     //tweak to your hearts content
     placeholderCSS: {
-      'font':'0.75em sans-serif', 
-      'color':'#bababa', 
+      'font-size':'12px', 
       'position': 'absolute', 
-      'left':'5px',
-      'top':'3px', 
+      'left':'8px',
+      'top':'6px', 
       'overflow-x': 'hidden',
 			'display': 'block'
     }
